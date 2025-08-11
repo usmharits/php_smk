@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ensiklopedia Visual PHP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    body { background: #ffffff; color: #1e293b; scroll-behavior: smooth; }
+    .glass { background: #ffffff; border-radius: 1rem; border: 1px solid #e2e8f0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .gradient-text { background: linear-gradient(90deg, #0ea5e9, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    code { font-family: 'Fira Code', monospace; }
+    .code-block { background: #f8fafc; padding: 1rem; border-radius: 0.75rem; overflow-x: auto; font-size: 0.875rem; border: 1px solid #e2e8f0; white-space: pre-wrap; word-wrap: break-word; }
+    .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; text-align: center; }
+    .fun-fact { background: #f0f9ff; border-left: 4px solid #38bdf8; padding: 1rem; border-radius: 0.5rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+<div class="container mx-auto px-4 py-12">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensiklopedia Visual PHP: Panduan Dasar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #9971c1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .code-block {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .code-block .comment { color: #94a3b8; }
+        .code-block .keyword { color: #93c5fd; }
+        .code-block .variable { color: #a5b4fc; }
+        .code-block .string { color: #a7f3d0; }
+        .code-block .function { color: #fdba74; }
+        .code-block .number { color: #fbbf24; }
+        
+        .floating-card {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
+            margin: 4rem 0;
+        }
+        
+        .pill-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.25rem;
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .nav-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 p-4">
+        <div class="container mx-auto text-center">
+            <a href="#intro" class="nav-item">Pengantar</a>
+            <a href="#basics" class="nav-item">Dasar PHP</a>
+            <a href="#oop" class="nav-item">OOP</a>
+            <a href="#database" class="nav-item">Database</a>
+            <a href="#frameworks" class="nav-item">Framework</a>
+            <a href="#security" class="nav-item">Keamanan</a>
+            <a href="#advanced" class="nav-item">Lanjutan</a>
+            <a href="#roadmap" class="nav-item">Roadmap</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-4 md:p-8 pt-24">
+
+        <!-- Header -->
+        <header id="intro" class="text-center mb-20">
+            <div class="glass-card p-12 floating-card">
+                <h1 class="text-6xl md:text-8xl font-black text-white mb-4">
+                    Ensiklopedia Visual PHP
+                </h1>
+                <p class="text-xl md:text-2xl text-white/80 font-light max-w-3xl mx-auto">
+                    Panduan Dasar Penggunaan PHP
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center gap-3">
+                    <span class="pill-badge">Interaktif</span>
+                    <span class="pill-badge">Visual</span>
+                    <span class="pill-badge">Praktis</span>
+                    <span class="pill-badge">Terkini</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- PHP Modern Stats -->
+        <section id="stats" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">PHP di Era Modern: Cepat, Kuat & Relevan</h2>
+                <p class="max-w-4xl mx-auto text-white/80">PHP telah berevolusi menjadi bahasa pemrograman yang sangat kompetitif, didukung oleh peningkatan performa masif dan ekosistem yang matang.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                <div class="glass-card p-8 text-center">
+                    <div class="text-5xl font-black text-white mb-2">79%</div>
+                    <div class="text-white/80">Website menggunakan PHP</div>
+                </div>
+                <div class="glass-card p-8 text-center">
+                    <div class="text-5xl font-black text-white mb-2">8.2</div>
+                    <div class="text-white/80">Versi PHP terbaru</div>
+                </div>
+                <div class="glass-card p-8 text-center">
+                    <div class="text-5xl font-black text-white mb-2">3x</div>
+                    <div class="text-white/80">Peningkatan performa vs PHP 7</div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold text-white text-center mb-6">Distribusi Versi PHP</h3>
+                    <div class="chart-container">
+                        <canvas id="versionChart"></canvas>
+                    </div>
+                </div>
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold text-white text-center mb-6">Benchmark Performa</h3>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- PHP Basics -->
+        <section id="basics" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Dasar-Dasar PHP</h2>
+                <p class="max-w-4xl mx-auto text-white/80">Mari mulai dengan fondasi yang kuat. Pahami sintaks dasar, tipe data, dan konsep fundamental PHP.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="glass-card p-6 text-center">
+                    <div class="feature-icon">🚀</div>
+                    <h4 class="font-bold text-lg text-white">Sintaks Sederhana</h4>
+                    <p class="text-white/80 text-sm">PHP menggunakan sintaks yang mudah dipahami dan mirip dengan bahasa C</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="feature-icon">🔧</div>
+                    <h4 class="font-bold text-lg text-white">Dinamis</h4>
+                    <p class="text-white/80 text-sm">Variabel tidak perlu dideklarasikan dan tipe data ditentukan otomatis</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="feature-icon">🌐</div>
+                    <h4 class="font-bold text-lg text-white">Server-Side</h4>
+                    <p class="text-white/80 text-sm">Dijalankan di server sebelum dikirim ke browser pengguna</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="feature-icon">💾</div>
+                    <h4 class="font-bold text-lg text-white">Database Friendly</h4>
+                    <p class="text-white/80 text-sm">Dukungan native untuk berbagai database populer</p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-white mb-6">Contoh Kode PHP Dasar</h3>
+                <pre class="code-block"><code><span class="keyword">&lt;?php</span>
+<span class="comment">// Variabel dan tipe data</span>
+<span class="variable">$nama</span> = <span class="string">"Budi Santoso"</span>;        <span class="comment">// String</span>
+<span class="variable">$umur</span> = <span class="number">25</span>;                    <span class="comment">// Integer</span>
+<span class="variable">$tinggi</span> = <span class="number">175.5</span>;               <span class="comment">// Float</span>
+<span class="variable">$aktif</span> = <span class="keyword">true</span>;                 <span class="comment">// Boolean</span>
+<span class="variable">$hobi</span> = [<span class="string">"coding"</span>, <span class="string">"gaming"</span>, <span class="string">"reading"</span>]; <span class="comment">// Array</span>
+
+<span class="comment">// Fungsi</span>
+<span class="keyword">function</span> <span class="function">sapa</span>(<span class="variable">$nama</span>) {
+    <span class="keyword">return</span> <span class="string">"Halo, "</span> . <span class="variable">$nama</span> . <span class="string">"!"</span>;
+}
+
+<span class="comment">// Struktur kontrol</span>
+<span class="keyword">if</span> (<span class="variable">$umur</span> >= <span class="number">18</span>) {
+    <span class="keyword">echo</span> <span class="function">sapa</span>(<span class="variable">$nama</span>) . <span class="string">" Anda sudah dewasa."</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">echo</span> <span class="string">"Anda masih di bawah umur."</span>;
+}
+
+<span class="comment">// Loop</span>
+<span class="keyword">foreach</span> (<span class="variable">$hobi</span> <span class="keyword">as</span> <span class="variable">$h</span>) {
+    <span class="keyword">echo</span> <span class="string">"Hobi: "</span> . <span class="variable">$h</span> . <span class="string">"\n"</span>;
+}
+<span class="keyword">?&gt;</span></code></pre>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- OOP Section -->
+        <section id="oop" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Object-Oriented Programming (OOP)</h2>
+                <p class="max-w-4xl mx-auto text-white/80">OOP adalah paradigma pemrograman yang mengorganisir kode menjadi objek-objek yang dapat berinteraksi satu sama lain.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="glass-card p-6 text-center">
+                    <div class="feature-icon">📦</div>
+                    <h4 class="font-bold text-lg text-white">Enkapsulasi</h4>
+                    <p class="text-white/80 text-sm">Menyembunyikan detail implementasi internal dari objek</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="feature-icon">🔗</div>
+                    <h4 class="font-bold text-lg text-white">Inheritance</h4>
+                    <p class="text-white/80 text-sm">Class dapat mewarisi properti dan method dari class lain</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="feature-icon">🎭</div>
+                    <h4 class="font-bold text-lg text-white">Polimorfisme</h4>
+                    <p class="text-white/80 text-sm">Objek berbeda dapat merespons method yang sama dengan cara berbeda</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="feature-icon">👻</div>
+                    <h4 class="font-bold text-lg text-white">Abstraksi</h4>
+                    <p class="text-white/80 text-sm">Fokus pada fitur esensial dan menyembunyikan kompleksitas</p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-white mb-6">Contoh Implementasi OOP</h3>
+                <pre class="code-block"><code><span class="keyword">&lt;?php</span>
+<span class="comment">// Abstract class</span>
+<span class="keyword">abstract class</span> <span class="variable">Kendaraan</span> {
+    <span class="keyword">protected</span> <span class="variable">$merk</span>;
+    <span class="keyword">protected</span> <span class="variable">$model</span>;
+    
+    <span class="keyword">public function</span> <span class="function">__construct</span>(<span class="variable">$merk</span>, <span class="variable">$model</span>) {
+        <span class="variable">$this</span>-><span class="variable">merk</span> = <span class="variable">$merk</span>;
+        <span class="variable">$this</span>-><span class="variable">model</span> = <span class="variable">$model</span>;
+    }
+    
+    <span class="keyword">abstract public function</span> <span class="function">nyalakan</span>();
+    
+    <span class="keyword">public function</span> <span class="function">getInfo</span>() {
+        <span class="keyword">return</span> <span class="variable">$this</span>-><span class="variable">merk</span> . <span class="string">" "</span> . <span class="variable">$this</span>-><span class="variable">model</span>;
+    }
+}
+
+<span class="comment">// Interface</span>
+<span class="keyword">interface</span> <span class="variable">GPS</span> {
+    <span class="keyword">public function</span> <span class="function">navigasi</span>(<span class="variable">$tujuan</span>);
+}
+
+<span class="comment">// Concrete class</span>
+<span class="keyword">class</span> <span class="variable">Mobil</span> <span class="keyword">extends</span> <span class="variable">Kendaraan</span> <span class="keyword">implements</span> <span class="variable">GPS</span> {
+    <span class="keyword">private</span> <span class="variable">$jumlahPintu</span>;
+    
+    <span class="keyword">public function</span> <span class="function">__construct</span>(<span class="variable">$merk</span>, <span class="variable">$model</span>, <span class="variable">$jumlahPintu</span>) {
+        <span class="keyword">parent</span>::<span class="function">__construct</span>(<span class="variable">$merk</span>, <span class="variable">$model</span>);
+        <span class="variable">$this</span>-><span class="variable">jumlahPintu</span> = <span class="variable">$jumlahPintu</span>;
+    }
+    
+    <span class="keyword">public function</span> <span class="function">nyalakan</span>() {
+        <span class="keyword">return</span> <span class="string">"Mobil "</span> . <span class="variable">$this</span>-><span class="function">getInfo</span>() . <span class="string">" dinyalakan dengan kunci"</span>;
+    }
+    
+    <span class="keyword">public function</span> <span class="function">navigasi</span>(<span class="variable">$tujuan</span>) {
+        <span class="keyword">return</span> <span class="string">"Navigasi ke "</span> . <span class="variable">$tujuan</span> . <span class="string">" dimulai"</span>;
+    }
+}
+
+<span class="comment">// Penggunaan</span>
+<span class="variable">$mobil</span> = <span class="keyword">new</span> <span class="variable">Mobil</span>(<span class="string">"Toyota"</span>, <span class="string">"Camry"</span>, <span class="number">4</span>);
+<span class="keyword">echo</span> <span class="variable">$mobil</span>-><span class="function">nyalakan</span>() . <span class="string">"\n"</span>;
+<span class="keyword">echo</span> <span class="variable">$mobil</span>-><span class="function">navigasi</span>(<span class="string">"Jakarta"</span>);
+<span class="keyword">?&gt;</span></code></pre>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Database Section -->
+        <section id="database" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Integrasi Database</h2>
+                <p class="max-w-4xl mx-auto text-white/80">Pelajari cara berinteraksi dengan database menggunakan PDO (PHP Data Objects) dengan aman dan efisien.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">Koneksi Database dengan PDO</h3>
+                    <pre class="code-block"><code><span class="keyword">&lt;?php</span>
+<span class="comment">// Konfigurasi database</span>
+<span class="variable">$host</span> = <span class="string">'localhost'</span>;
+<span class="variable">$dbname</span> = <span class="string">'my_database'</span>;
+<span class="variable">$username</span> = <span class="string">'root'</span>;
+<span class="variable">$password</span> = <span class="string">''</span>;
+
+<span class="keyword">try</span> {
+    <span class="variable">$pdo</span> = <span class="keyword">new</span> <span class="variable">PDO</span>(
+        <span class="string">"mysql:host=$host;dbname=$dbname"</span>,
+        <span class="variable">$username</span>,
+        <span class="variable">$password</span>,
+        [
+            <span class="variable">PDO::ATTR_ERRMODE</span> => <span class="variable">PDO::ERRMODE_EXCEPTION</span>,
+            <span class="variable">PDO::ATTR_DEFAULT_FETCH_MODE</span> => <span class="variable">PDO::FETCH_ASSOC</span>
+        ]
+    );
+    
+    <span class="keyword">echo</span> <span class="string">"Koneksi berhasil!"</span>;
+} <span class="keyword">catch</span> (<span class="variable">PDOException</span> <span class="variable">$e</span>) {
+    <span class="keyword">echo</span> <span class="string">"Koneksi gagal: "</span> . <span class="variable">$e</span>-><span class="function">getMessage</span>();
+}
+<span class="keyword">?&gt;</span></code></pre>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">CRUD Operations</h3>
+                    <pre class="code-block"><code><span class="comment">// CREATE - Insert data</span>
+<span class="variable">$stmt</span> = <span class="variable">$pdo</span>-><span class="function">prepare</span>(
+    <span class="string">"INSERT INTO users (name, email) VALUES (?, ?)"</span>
+);
+<span class="variable">$stmt</span>-><span class="function">execute</span>([<span class="string">'John Doe'</span>, <span class="string">'john@email.com'</span>]);
+
+<span class="comment">// READ - Select data</span>
+<span class="variable">$stmt</span> = <span class="variable">$pdo</span>-><span class="function">prepare</span>(<span class="string">"SELECT * FROM users WHERE id = ?"</span>);
+<span class="variable">$stmt</span>-><span class="function">execute</span>([<span class="number">1</span>]);
+<span class="variable">$user</span> = <span class="variable">$stmt</span>-><span class="function">fetch</span>();
+
+<span class="comment">// UPDATE - Update data</span>
+<span class="variable">$stmt</span> = <span class="variable">$pdo</span>-><span class="function">prepare</span>(
+    <span class="string">"UPDATE users SET email = ? WHERE id = ?"</span>
+);
+<span class="variable">$stmt</span>-><span class="function">execute</span>([<span class="string">'newemail@email.com'</span>, <span class="number">1</span>]);
+
+<span class="comment">// DELETE - Delete data</span>
+<span class="variable">$stmt</span> = <span class="variable">$pdo</span>-><span class="function">prepare</span>(<span class="string">"DELETE FROM users WHERE id = ?"</span>);
+<span class="variable">$stmt</span>-><span class="function">execute</span>([<span class="number">1</span>]);</code></pre>
+                </div>
+            </div>
+            
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-white mb-6">Database Model Class</h3>
+                <pre class="code-block"><code><span class="keyword">class</span> <span class="variable">User</span> {
+    <span class="keyword">private</span> <span class="variable">$pdo</span>;
+    
+    <span class="keyword">public function</span> <span class="function">__construct</span>(<span class="variable">PDO</span> <span class="variable">$pdo</span>) {
+        <span class="variable">$this</span>-><span class="variable">pdo</span> = <span class="variable">$pdo</span>;
+    }
+    
+    <span class="keyword">public function</span> <span class="function">create</span>(<span class="variable">$name</span>, <span class="variable">$email</span>) {
+        <span class="variable">$stmt</span> = <span class="variable">$this</span>-><span class="variable">pdo</span>-><span class="function">prepare</span>(
+            <span class="string">"INSERT INTO users (name, email, created_at) VALUES (?, ?, NOW())"</span>
+        );
+        <span class="keyword">return</span> <span class="variable">$stmt</span>-><span class="function">execute</span>([<span class="variable">$name</span>, <span class="variable">$email</span>]);
+    }
+    
+    <span class="keyword">public function</span> <span class="function">findById</span>(<span class="variable">$id</span>) {
+        <span class="variable">$stmt</span> = <span class="variable">$this</span>-><span class="variable">pdo</span>-><span class="function">prepare</span>(<span class="string">"SELECT * FROM users WHERE id = ?"</span>);
+        <span class="variable">$stmt</span>-><span class="function">execute</span>([<span class="variable">$id</span>]);
+        <span class="keyword">return</span> <span class="variable">$stmt</span>-><span class="function">fetch</span>();
+    }
+    
+    <span class="keyword">public function</span> <span class="function">findAll</span>(<span class="variable">$limit</span> = <span class="number">10</span>, <span class="variable">$offset</span> = <span class="number">0</span>) {
+        <span class="variable">$stmt</span> = <span class="variable">$this</span>-><span class="variable">pdo</span>-><span class="function">prepare</span>(
+            <span class="string">"SELECT * FROM users ORDER BY created_at DESC LIMIT ? OFFSET ?"</span>
+        );
+        <span class="variable">$stmt</span>-><span class="function">execute</span>([<span class="variable">$limit</span>, <span class="variable">$offset</span>]);
+        <span class="keyword">return</span> <span class="variable">$stmt</span>-><span class="function">fetchAll</span>();
+    }
+    
+    <span class="keyword">public function</span> <span class="function">update</span>(<span class="variable">$id</span>, <span class="variable">$name</span>, <span class="variable">$email</span>) {
+        <span class="variable">$stmt</span> = <span class="variable">$this</span>-><span class="variable">pdo</span>-><span class="function">prepare</span>(
+            <span class="string">"UPDATE users SET name = ?, email = ?, updated_at = NOW() WHERE id = ?"</span>
+        );
+        <span class="keyword">return</span> <span class="variable">$stmt</span>-><span class="function">execute</span>([<span class="variable">$name</span>, <span class="variable">$email</span>, <span class="variable">$id</span>]);
+    }
+    
+    <span class="keyword">public function</span> <span class="function">delete</span>(<span class="variable">$id</span>) {
+        <span class="variable">$stmt</span> = <span class="variable">$this</span>-><span class="variable">pdo</span>-><span class="function">prepare</span>(<span class="string">"DELETE FROM users WHERE id = ?"</span>);
+        <span class="keyword">return</span> <span class="variable">$stmt</span>-><span class="function">execute</span>([<span class="variable">$id</span>]);
+    }
+}</code></pre>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Frameworks Section -->
+        <section id="frameworks" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Framework PHP Modern</h2>
+                <p class="max-w-4xl mx-auto text-white/80">Framework mempercepat pengembangan dengan menyediakan struktur, tools, dan best practices yang sudah teruji.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="glass-card p-8 text-center">
+                    <div class="feature-icon">🎯</div>
+                    <h4 class="font-bold text-xl text-white mb-3">Laravel</h4>
+                    <p class="text-white/80 text-sm mb-4">Framework paling populer dengan sintaks elegan dan ekosistem lengkap</p>
+                    <div class="flex flex-wrap justify-center gap-1">
+                        <span class="pill-badge text-xs">Eloquent ORM</span>
+                        <span class="pill-badge text-xs">Artisan CLI</span>
+                        <span class="pill-badge text-xs">Blade Templates</span>
+                    </div>
+                </div>
+                <div class="glass-card p-8 text-center">
+                    <div class="feature-icon">⚡</div>
+                    <h4 class="font-bold text-xl text-white mb-3">Symfony</h4>
+                    <p class="text-white/80 text-sm mb-4">Framework enterprise dengan komponen modular dan performa tinggi</p>
+                    <div class="flex flex-wrap justify-center gap-1">
+                        <span class="pill-badge text-xs">Components</span>
+                        <span class="pill-badge text-xs">Doctrine ORM</span>
+                        <span class="pill-badge text-xs">Twig Templates</span>
+                    </div>
+                </div>
+                <div class="glass-card p-8 text-center">
+                    <div class="feature-icon">🚀</div>
+                    <h4 class="font-bold text-xl text-white mb-3">CodeIgniter</h4>
+                    <p class="text-white/80 text-sm mb-4">Framework ringan dengan learning curve yang mudah</p>
+                    <div class="flex flex-wrap justify-center gap-1">
+                        <span class="pill-badge text-xs">Lightweight</span>
+                        <span class="pill-badge text-xs">Simple</span>
+                        <span class="pill-badge text-xs">Fast Setup</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-white mb-6">Contoh Aplikasi Laravel Sederhana</h3>
+                <pre class="code-block"><code><span class="comment">// routes/web.php</span>
+<span class="keyword">Route</span>::<span class="function">get</span>(<span class="string">'/'</span>, <span class="keyword">function</span> () {
+    <span class="keyword">return</span> <span class="function">view</span>(<span class="string">'welcome'</span>);
+});
+
+<span class="keyword">Route</span>::<span class="function">get</span>(<span class="string">'/users'</span>, [<span class="variable">UserController</span>::<span class="keyword">class</span>, <span class="string">'index'</span>]);
+<span class="keyword">Route</span>::<span class="function">post</span>(<span class="string">'/users'</span>, [<span class="variable">UserController</span>::<span class="keyword">class</span>, <span class="string">'store'</span>]);
+
+<span class="comment">// app/Http/Controllers/UserController.php</span>
+<span class="keyword">class</span> <span class="variable">UserController</span> <span class="keyword">extends</span> <span class="variable">Controller</span>
+{
+    <span class="keyword">public function</span> <span class="function">index</span>()
+    {
+        <span class="variable">$users</span> = <span class="variable">User</span>::<span class="function">paginate</span>(<span class="number">10</span>);
+        <span class="keyword">return</span> <span class="function">view</span>(<span class="string">'users.index'</span>, <span class="function">compact</span>(<span class="string">'users'</span>));
+    }
+    
+    <span class="keyword">public function</span> <span class="function">store</span>(<span class="variable">Request</span> <span class="variable">$request</span>)
+    {
+        <span class="variable">$validated</span> = <span class="variable">$request</span>-><span class="function">validate</span>([
+            <span class="string">'name'</span> => <span class="string">'required|max:255'</span>,
+            <span class="string">'email'</span> => <span class="string">'required|email|unique:users'</span>,
+        ]);
+        
+        <span class="variable">User</span>::<span class="function">create</span>(<span class="variable">$validated</span>);
+        
+        <span class="keyword">return</span> <span class="function">redirect</span>(<span class="string">'/users'</span>)-><span class="function">with</span>(<span class="string">'success'</span>, <span class="string">'User created!'</span>);
+    }
+}
+
+<span class="comment">// app/Models/User.php</span>
+<span class="keyword">class</span> <span class="variable">User</span> <span class="keyword">extends</span> <span class="variable">Authenticatable</span>
+{
+    <span class="keyword">protected</span> <span class="variable">$fillable</span> = [<span class="string">'name'</span>, <span class="string">'email'</span>, <span class="string">'password'</span>];
+    
+    <span class="keyword">protected</span> <span class="variable">$hidden</span> = [<span class="string">'password'</span>, <span class="string">'remember_token'</span>];
+    
+    <span class="keyword">public function</span> <span class="function">posts</span>()
+    {
+        <span class="keyword">return</span> <span class="variable">$this</span>-><span class="function">hasMany</span>(<span class="variable">Post</span>::<span class="keyword">class</span>);
+    }
+}</code></pre>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Security Section -->
+        <section id="security" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Keamanan Web: Membangun Benteng Digital</h2>
+                <p class="max-w-4xl mx-auto text-white/80">Keamanan adalah aspek kritis dalam pengembangan web. Pelajari ancaman umum dan cara mengatasinya.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="glass-card p-8">
+                    <div class="text-center mb-4"><span class="text-5xl">💉</span></div>
+                    <h3 class="font-bold text-xl text-white text-center mb-4">SQL Injection</h3>
+                    <p class="text-white/80 text-sm mb-4">Penyerang menyuntikkan kode SQL berbahaya melalui input user</p>
+                    <div class="bg-red-500/20 p-3 rounded-lg mb-3">
+                        <p class="text-red-200 text-xs font-mono">❌ Berbahaya:</p>
+                        <p class="text-red-200 text-xs font-mono">"SELECT * FROM users WHERE id = " . $_GET['id']</p>
+                    </div>
+                    <div class="bg-green-500/20 p-3 rounded-lg">
+                        <p class="text-green-200 text-xs font-mono">✅ Aman:</p>
+                        <p class="text-green-200 text-xs font-mono">$stmt->execute([$_GET['id']])</p>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <div class="text-center mb-4"><span class="text-5xl">🎭</span></div>
+                    <h3 class="font-bold text-xl text-white text-center mb-4">Cross-Site Scripting (XSS)</h3>
+                    <p class="text-white/80 text-sm mb-4">Penyerang menyuntikkan script JavaScript ke halaman web</p>
+                    <div class="bg-red-500/20 p-3 rounded-lg mb-3">
+                        <p class="text-red-200 text-xs font-mono">❌ Berbahaya:</p>
+                        <p class="text-red-200 text-xs font-mono">echo $_POST['comment']</p>
+                    </div>
+                    <div class="bg-green-500/20 p-3 rounded-lg">
+                        <p class="text-green-200 text-xs font-mono">✅ Aman:</p>
+                        <p class="text-green-200 text-xs font-mono">echo htmlspecialchars($_POST['comment'])</p>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <div class="text-center mb-4"><span class="text-5xl">🔐</span></div>
+                    <h3 class="font-bold text-xl text-white text-center mb-4">Password Hashing</h3>
+                    <p class="text-white/80 text-sm mb-4">Jangan pernah simpan password dalam bentuk plain text</p>
+                    <div class="bg-red-500/20 p-3 rounded-lg mb-3">
+                        <p class="text-red-200 text-xs font-mono">❌ Berbahaya:</p>
+                        <p class="text-red-200 text-xs font-mono">md5($password)</p>
+                    </div>
+                    <div class="bg-green-500/20 p-3 rounded-lg">
+                        <p class="text-green-200 text-xs font-mono">✅ Aman:</p>
+                        <p class="text-green-200 text-xs font-mono">password_hash($password, PASSWORD_DEFAULT)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-white mb-6">Implementasi Keamanan Komprehensif</h3>
+                <pre class="code-block"><code><span class="keyword">class</span> <span class="variable">SecurityHelper</span> {
+    
+    <span class="comment">// CSRF Protection</span>
+    <span class="keyword">public static function</span> <span class="function">generateCSRFToken</span>() {
+        <span class="keyword">if</span> (<span class="function">empty</span>(<span class="variable">$_SESSION</span>[<span class="string">'csrf_token'</span>])) {
+            <span class="variable">$_SESSION</span>[<span class="string">'csrf_token'</span>] = <span class="function">bin2hex</span>(<span class="function">random_bytes</span>(<span class="number">32</span>));
+        }
+        <span class="keyword">return</span> <span class="variable">$_SESSION</span>[<span class="string">'csrf_token'</span>];
+    }
+    
+    <span class="keyword">public static function</span> <span class="function">verifyCSRFToken</span>(<span class="variable">$token</span>) {
+        <span class="keyword">return</span> <span class="function">isset</span>(<span class="variable">$_SESSION</span>[<span class="string">'csrf_token'</span>]) && 
+               <span class="function">hash_equals</span>(<span class="variable">$_SESSION</span>[<span class="string">'csrf_token'</span>], <span class="variable">$token</span>);
+    }
+    
+    <span class="comment">// Input Sanitization</span>
+    <span class="keyword">public static function</span> <span class="function">sanitizeInput</span>(<span class="variable">$data</span>) {
+        <span class="variable">$data</span> = <span class="function">trim</span>(<span class="variable">$data</span>);
+        <span class="variable">$data</span> = <span class="function">stripslashes</span>(<span class="variable">$data</span>);
+        <span class="variable">$data</span> = <span class="function">htmlspecialchars</span>(<span class="variable">$data</span>, <span class="variable">ENT_QUOTES</span>, <span class="string">'UTF-8'</span>);
+        <span class="keyword">return</span> <span class="variable">$data</span>;
+    }
+    
+    <span class="comment">// Password Security</span>
+    <span class="keyword">public static function</span> <span class="function">hashPassword</span>(<span class="variable">$password</span>) {
+        <span class="keyword">return</span> <span class="function">password_hash</span>(<span class="variable">$password</span>, <span class="variable">PASSWORD_ARGON2ID</span>, [
+            <span class="string">'memory_cost'</span> => <span class="number">65536</span>,
+            <span class="string">'time_cost'</span> => <span class="number">4</span>,
+            <span class="string">'threads'</span> => <span class="number">3</span>
+        ]);
+    }
+    
+    <span class="keyword">public static function</span> <span class="function">verifyPassword</span>(<span class="variable">$password</span>, <span class="variable">$hash</span>) {
+        <span class="keyword">return</span> <span class="function">password_verify</span>(<span class="variable">$password</span>, <span class="variable">$hash</span>);
+    }
+    
+    <span class="comment">// File Upload Security</span>
+    <span class="keyword">public static function</span> <span class="function">validateFileUpload</span>(<span class="variable">$file</span>, <span class="variable">$allowedTypes</span> = [], <span class="variable">$maxSize</span> = <span class="number">2097152</span>) {
+        <span class="keyword">if</span> (<span class="variable">$file</span>[<span class="string">'error'</span>] !== <span class="variable">UPLOAD_ERR_OK</span>) {
+            <span class="keyword">return</span> <span class="keyword">false</span>;
+        }
+        
+        <span class="keyword">if</span> (<span class="variable">$file</span>[<span class="string">'size'</span>] > <span class="variable">$maxSize</span>) {
+            <span class="keyword">return</span> <span class="keyword">false</span>;
+        }
+        
+        <span class="variable">$finfo</span> = <span class="function">finfo_open</span>(<span class="variable">FILEINFO_MIME_TYPE</span>);
+        <span class="variable">$mimeType</span> = <span class="function">finfo_file</span>(<span class="variable">$finfo</span>, <span class="variable">$file</span>[<span class="string">'tmp_name'</span>]);
+        <span class="function">finfo_close</span>(<span class="variable">$finfo</span>);
+        
+        <span class="keyword">return</span> <span class="function">in_array</span>(<span class="variable">$mimeType</span>, <span class="variable">$allowedTypes</span>);
+    }
+}</code></pre>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Advanced Topics -->
+        <section id="advanced" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Topik Lanjutan</h2>
+                <p class="max-w-4xl mx-auto text-white/80">Pelajari konsep dan teknik advanced untuk mengoptimalkan aplikasi PHP Anda.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">🚀 Caching Strategies</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white">OpCache</h4>
+                            <p class="text-white/80 text-sm">Cache bytecode PHP di memory untuk performa maksimal</p>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white">Redis/Memcached</h4>
+                            <p class="text-white/80 text-sm">Cache data aplikasi dan session storage</p>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white">HTTP Caching</h4>
+                            <p class="text-white/80 text-sm">ETags, Last-Modified headers untuk cache browser</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">⚡ Performance Optimization</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white">Database Optimization</h4>
+                            <p class="text-white/80 text-sm">Query optimization, indexing, connection pooling</p>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white">Memory Management</h4>
+                            <p class="text-white/80 text-sm">Garbage collection, memory leaks prevention</p>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white">Profiling</h4>
+                            <p class="text-white/80 text-sm">Xdebug, Blackfire untuk analisis performa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">API Development</h3>
+                    <pre class="code-block"><code><span class="comment">// RESTful API dengan routing</span>
+<span class="keyword">class</span> <span class="variable">ApiController</span> {
+    
+    <span class="keyword">public function</span> <span class="function">index</span>(<span class="variable">Request</span> <span class="variable">$request</span>) {
+        <span class="variable">$limit</span> = <span class="variable">$request</span>-><span class="function">get</span>(<span class="string">'limit'</span>, <span class="number">10</span>);
+        <span class="variable">$users</span> = <span class="variable">User</span>::<span class="function">paginate</span>(<span class="variable">$limit</span>);
+        
+        <span class="keyword">return</span> <span class="function">response</span>()-><span class="function">json</span>([
+            <span class="string">'data'</span> => <span class="variable">$users</span>-><span class="function">items</span>(),
+            <span class="string">'meta'</span> => [
+                <span class="string">'total'</span> => <span class="variable">$users</span>-><span class="function">total</span>(),
+                <span class="string">'per_page'</span> => <span class="variable">$users</span>-><span class="function">perPage</span>(),
+                <span class="string">'current_page'</span> => <span class="variable">$users</span>-><span class="function">currentPage</span>()
+            ]
+        ]);
+    }
+    
+    <span class="keyword">public function</span> <span class="function">store</span>(<span class="variable">Request</span> <span class="variable">$request</span>) {
+        <span class="variable">$validator</span> = <span class="function">validator</span>(<span class="variable">$request</span>-><span class="function">all</span>(), [
+            <span class="string">'name'</span> => <span class="string">'required|string|max:255'</span>,
+            <span class="string">'email'</span> => <span class="string">'required|email|unique:users'</span>
+        ]);
+        
+        <span class="keyword">if</span> (<span class="variable">$validator</span>-><span class="function">fails</span>()) {
+            <span class="keyword">return</span> <span class="function">response</span>()-><span class="function">json</span>([
+                <span class="string">'error'</span> => <span class="string">'Validation failed'</span>,
+                <span class="string">'messages'</span> => <span class="variable">$validator</span>-><span class="function">errors</span>()
+            ], <span class="number">422</span>);
+        }
+        
+        <span class="variable">$user</span> = <span class="variable">User</span>::<span class="function">create</span>(<span class="variable">$validator</span>-><span class="function">validated</span>());
+        
+        <span class="keyword">return</span> <span class="function">response</span>()-><span class="function">json</span>(<span class="variable">$user</span>, <span class="number">201</span>);
+    }
+}</code></pre>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">Queue & Background Jobs</h3>
+                    <pre class="code-block"><code><span class="comment">// Job untuk mengirim email</span>
+<span class="keyword">class</span> <span class="variable">SendEmailJob</span> {
+    <span class="keyword">protected</span> <span class="variable">$user</span>;
+    <span class="keyword">protected</span> <span class="variable">$message</span>;
+    
+    <span class="keyword">public function</span> <span class="function">__construct</span>(<span class="variable">$user</span>, <span class="variable">$message</span>) {
+        <span class="variable">$this</span>-><span class="variable">user</span> = <span class="variable">$user</span>;
+        <span class="variable">$this</span>-><span class="variable">message</span> = <span class="variable">$message</span>;
+    }
+    
+    <span class="keyword">public function</span> <span class="function">handle</span>() {
+        <span class="comment">// Kirim email menggunakan library email</span>
+        <span class="variable">$mailer</span> = <span class="keyword">new</span> <span class="variable">Mailer</span>();
+        <span class="variable">$mailer</span>-><span class="function">send</span>(
+            <span class="variable">$this</span>-><span class="variable">user</span>-><span class="variable">email</span>,
+            <span class="string">'Subject'</span>,
+            <span class="variable">$this</span>-><span class="variable">message</span>
+        );
+        
+        <span class="function">log_info</span>(<span class="string">"Email sent to {$this->user->email}"</span>);
+    }
+    
+    <span class="keyword">public function</span> <span class="function">failed</span>(<span class="variable">Exception</span> <span class="variable">$exception</span>) {
+        <span class="function">log_error</span>(<span class="string">"Failed to send email: "</span> . <span class="variable">$exception</span>-><span class="function">getMessage</span>());
+    }
+}
+
+<span class="comment">// Dispatch job</span>
+<span class="variable">$job</span> = <span class="keyword">new</span> <span class="variable">SendEmailJob</span>(<span class="variable">$user</span>, <span class="string">'Welcome!'</span>);
+<span class="variable">Queue</span>::<span class="function">push</span>(<span class="variable">$job</span>);</code></pre>
+                </div>
+            </div>
+            
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-white mb-6">Testing dengan PHPUnit</h3>
+                <pre class="code-block"><code><span class="keyword">use</span> <span class="variable">PHPUnit\Framework\TestCase</span>;
+
+<span class="keyword">class</span> <span class="variable">UserTest</span> <span class="keyword">extends</span> <span class="variable">TestCase</span> {
+    
+    <span class="keyword">private</span> <span class="variable">$user</span>;
+    
+    <span class="keyword">protected function</span> <span class="function">setUp</span>(): <span class="keyword">void</span> {
+        <span class="variable">$this</span>-><span class="variable">user</span> = <span class="keyword">new</span> <span class="variable">User</span>();
+    }
+    
+    <span class="keyword">public function</span> <span class="function">testUserCanBeCreated</span>() {
+        <span class="variable">$userData</span> = [
+            <span class="string">'name'</span> => <span class="string">'John Doe'</span>,
+            <span class="string">'email'</span> => <span class="string">'john@example.com'</span>
+        ];
+        
+        <span class="variable">$user</span> = <span class="variable">User</span>::<span class="function">create</span>(<span class="variable">$userData</span>);
+        
+        <span class="variable">$this</span>-><span class="function">assertInstanceOf</span>(<span class="variable">User</span>::<span class="keyword">class</span>, <span class="variable">$user</span>);
+        <span class="variable">$this</span>-><span class="function">assertEquals</span>(<span class="string">'John Doe'</span>, <span class="variable">$user</span>-><span class="variable">name</span>);
+        <span class="variable">$this</span>-><span class="function">assertEquals</span>(<span class="string">'john@example.com'</span>, <span class="variable">$user</span>-><span class="variable">email</span>);
+    }
+    
+    <span class="keyword">public function</span> <span class="function">testUserValidation</span>() {
+        <span class="variable">$this</span>-><span class="function">expectException</span>(<span class="variable">ValidationException</span>::<span class="keyword">class</span>);
+        
+        <span class="variable">User</span>::<span class="function">create</span>([
+            <span class="string">'name'</span> => <span class="string">''</span>, <span class="comment">// Invalid: empty name</span>
+            <span class="string">'email'</span> => <span class="string">'invalid-email'</span> <span class="comment">// Invalid: bad email format</span>
+        ]);
+    }
+    
+    <span class="keyword">public function</span> <span class="function">testApiEndpoint</span>() {
+        <span class="variable">$response</span> = <span class="variable">$this</span>-><span class="function">json</span>(<span class="string">'GET'</span>, <span class="string">'/api/users'</span>);
+        
+        <span class="variable">$response</span>-><span class="function">assertStatus</span>(<span class="number">200</span>)
+                 -><span class="function">assertJsonStructure</span>([
+                     <span class="string">'data'</span> => [
+                         <span class="string">'*'</span> => [<span class="string">'id'</span>, <span class="string">'name'</span>, <span class="string">'email'</span>]
+                     ],
+                     <span class="string">'meta'</span>
+                 ]);
+    }
+}</code></pre>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Learning Roadmap -->
+        <section id="roadmap" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">🗺️ Peta Jalan Pembelajaran</h2>
+                <p class="max-w-4xl mx-auto text-white/80">Roadmap sistematis untuk menjadi PHP developer profesional dalam 6-12 bulan.</p>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="glass-card p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">1</div>
+                        <h3 class="text-2xl font-bold text-white">Fondasi PHP (Minggu 1-4)</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">Sintaks Dasar</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• Variabel, konstanta, tipe data</li>
+                                <li>• Operator dan ekspresi</li>
+                                <li>• Struktur kontrol (if, switch, loops)</li>
+                                <li>• Fungsi dan scope</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">Array & String</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• Manipulasi array (indexed, associative)</li>
+                                <li>• String functions dan regex</li>
+                                <li>• Superglobals ($_GET, $_POST, $_SESSION)</li>
+                                <li>• File handling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">2</div>
+                        <h3 class="text-2xl font-bold text-white">Web Development & Database (Minggu 5-8)</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">HTTP & Forms</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• HTTP methods (GET, POST, PUT, DELETE)</li>
+                                <li>• Form handling dan validation</li>
+                                <li>• Session & Cookies</li>
+                                <li>• File uploads</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">Database Integration</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• MySQL fundamentals</li>
+                                <li>• PDO dan prepared statements</li>
+                                <li>• CRUD operations</li>
+                                <li>• Database design basics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">3</div>
+                        <h3 class="text-2xl font-bold text-white">Object-Oriented Programming (Minggu 9-12)</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">OOP Konsep</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• Classes dan Objects</li>
+                                <li>• Properties dan Methods</li>
+                                <li>• Visibility (public, private, protected)</li>
+                                <li>• Constructor dan Destructor</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">Advanced OOP</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• Inheritance dan Polymorphism</li>
+                                <li>• Abstract classes dan Interfaces</li>
+                                <li>• Traits dan Namespaces</li>
+                                <li>• Design Patterns (Singleton, Factory)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">4</div>
+                        <h3 class="text-2xl font-bold text-white">Modern PHP Ecosystem (Minggu 13-16)</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">Tools & Standards</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• Composer untuk dependency management</li>
+                                <li>• PSR standards (PSR-4, PSR-12)</li>
+                                <li>• Autoloading dan namespaces</li>
+                                <li>• Git version control</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">Framework Introduction</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• MVC Architecture pattern</li>
+                                <li>• Laravel atau Symfony basics</li>
+                                <li>• Routing dan middleware</li>
+                                <li>• Templating engines (Blade, Twig)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">5</div>
+                        <h3 class="text-2xl font-bold text-white">Security & Best Practices (Minggu 17-20)</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">Security Essentials</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• SQL Injection prevention</li>
+                                <li>• XSS dan CSRF protection</li>
+                                <li>• Password hashing dan authentication</li>
+                                <li>• Input validation dan sanitization</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">Code Quality</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• Error handling dan logging</li>
+                                <li>• Code standards dan formatting</li>
+                                <li>• Unit testing dengan PHPUnit</li>
+                                <li>• Code review dan debugging</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-4">6</div>
+                        <h3 class="text-2xl font-bold text-white">Advanced Topics & Specialization (Minggu 21-24)</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">Performance & Scalability</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• Caching strategies (Redis, Memcached)</li>
+                                <li>• Database optimization</li>
+                                <li>• API development (REST, GraphQL)</li>
+                                <li>• Microservices architecture</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg">
+                            <h4 class="font-bold text-white mb-2">DevOps & Deployment</h4>
+                            <ul class="text-white/80 text-sm space-y-1">
+                                <li>• Docker containerization</li>
+                                <li>• CI/CD pipelines</li>
+                                <li>• Server configuration (Nginx, Apache)</li>
+                                <li>• Monitoring dan logging</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-card p-8 mt-12">
+                <h3 class="text-2xl font-bold text-white mb-6 text-center">🎯 Tips Sukses Pembelajaran</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="feature-icon">💻</div>
+                        <h4 class="font-bold text-white">Practice Daily</h4>
+                        <p class="text-white/80 text-sm">Coding minimal 2 jam setiap hari untuk membangun muscle memory</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="feature-icon">🚀</div>
+                        <h4 class="font-bold text-white">Build Projects</h4>
+                        <p class="text-white/80 text-sm">Buat project nyata seperti blog, e-commerce, atau API untuk portfolio</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="feature-icon">👥</div>
+                        <h4 class="font-bold text-white">Join Community</h4>
+                        <p class="text-white/80 text-sm">Bergabung dengan komunitas PHP Indonesia dan international</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">📚 Sumber Belajar Terpercaya</h2>
+                <p class="max-w-4xl mx-auto text-white/80">Kumpulan resource berkualitas tinggi untuk memperdalam pengetahuan PHP Anda.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-6">
+                    <div class="feature-icon">📖</div>
+                    <h4 class="font-bold text-xl text-white mb-3">Dokumentasi Official</h4>
+                    <ul class="text-white/80 text-sm space-y-2">
+                        <li>• PHP.net - Dokumentasi lengkap</li>
+                        <li>• Laravel.com - Framework documentation</li>
+                        <li>• Symfony.com - Component docs</li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card p-6">
+                    <div class="feature-icon">🎥</div>
+                    <h4 class="font-bold text-xl text-white mb-3">Video Learning</h4>
+                    <ul class="text-white/80 text-sm space-y-2">
+                        <li>• Laracasts - Premium Laravel courses</li>
+                        <li>• YouTube - WPU, Parsinta</li>
+                        <li>• Udemy - Comprehensive courses</li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card p-6">
+                    <div class="feature-icon">💬</div>
+                    <h4 class="font-bold text-xl text-white mb-3">Community</h4>
+                    <ul class="text-white/80 text-sm space-y-2">
+                        <li>• Stack Overflow - Q&A platform</li>
+                        <li>• Reddit r/PHP - Discussions</li>
+                        <li>• PHP Indonesia - Local community</li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card p-6">
+                    <div class="feature-icon">🛠️</div>
+                    <h4 class="font-bold text-xl text-white mb-3">Tools & IDEs</h4>
+                    <ul class="text-white/80 text-sm space-y-2">
+                        <li>• PhpStorm - Professional IDE</li>
+                        <li>• VS Code - Free, extensible</li>
+                        <li>• XAMPP/Laragon - Local server</li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card p-6">
+                    <div class="feature-icon">📚</div>
+                    <h4 class="font-bold text-xl text-white mb-3">Books</h4>
+                    <ul class="text-white/80 text-sm space-y-2">
+                        <li>• "Modern PHP" - Josh Lockhart</li>
+                        <li>• "Clean Code" - Robert Martin</li>
+                        <li>• "Design Patterns" - Gang of Four</li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card p-6">
+                    <div class="feature-icon">🏆</div>
+                    <h4 class="font-bold text-xl text-white mb-3">Practice Platforms</h4>
+                    <ul class="text-white/80 text-sm space-y-2">
+                        <li>• HackerRank - Coding challenges</li>
+                        <li>• LeetCode - Algorithm practice</li>
+                        <li>• Codewars - PHP kata exercises</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHP Ecosystem Chart -->
+        <section class="mb-24">
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-white text-center mb-6">🌐 Ekosistem PHP Modern</h3>
+                <div id="ecosystemChart" class="chart-container"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="glass-card m-4 p-6 text-center">
+    <p class="text-white/80 text-sm">
+        &copy; 2025 Usamah Al Harits. All rights reserved.
+    </p>
+</footer>
+
+
+    <script>
+        // Chart configurations
+        Chart.defaults.font.family = 'Poppins';
+        Chart.defaults.font.size = 12;
+        Chart.defaults.color = '#ffffff';
+
+        const gradientColors = ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe', '#00f2fe'];
+        
+        // Version Usage Chart
+        const versionCtx = document.getElementById('versionChart').getContext('2d');
+        new Chart(versionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['PHP 8.x', 'PHP 7.4', 'PHP 7.x', 'Older Versions'],
+                datasets: [{
+                    data: [62.1, 28.4, 7.8, 1.7],
+                    backgroundColor: gradientColors.slice(0, 4),
+                    borderWidth: 2,
+                    borderColor: 'rgba(255, 255, 255, 0.2)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#ffffff', padding: 20 }
+                    }
+                }
+            }
+        });
+
+        // Performance Chart
+        const perfCtx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(perfCtx, {
+            type: 'bar',
+            data: {
+                labels: ['PHP 8.2 (JIT)', 'Node.js 18', 'PHP 7.4', 'Python Django', 'Ruby Rails'],
+                datasets: [{
+                    label: 'Requests per Second',
+                    data: [8200, 8800, 3400, 2100, 1800],
+                    backgroundColor: gradientColors.slice(0, 5),
+                    borderRadius: 8,
+                    borderSkipped: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: { color: '#ffffff' }
+                    },
+                    x: {
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: { color: '#ffffff' }
+                    }
+                }
+            }
+        });
+
+        // PHP Ecosystem Treemap
+        const ecosystemData = [{
+            type: "treemap",
+            labels: [
+                "PHP Ecosystem", "Frameworks", "CMS", "Tools", "Testing", 
+                "Laravel", "Symfony", "CodeIgniter", "WordPress", "Drupal", 
+                "Composer", "PHPUnit", "Xdebug"
+            ],
+            parents: [
+                "", "PHP Ecosystem", "PHP Ecosystem", "PHP Ecosystem", "PHP Ecosystem",
+                "Frameworks", "Frameworks", "Frameworks", "CMS", "CMS",
+                "Tools", "Testing", "Tools"
+            ],
+            values: [100, 40, 25, 20, 15, 20, 12, 8, 15, 10, 12, 10, 8],
+            textinfo: "label+value",
+            hovertemplate: '<b>%{label}</b><br>Usage: %{value}%<extra></extra>',
+            marker: {
+                colorscale: [
+                    [0, '#667eea'],
+                    [0.25, '#764ba2'],
+                    [0.5, '#f093fb'],
+                    [0.75, '#f5576c'],
+                    [1, '#4facfe']
+                ],
+                showscale: false
+            }
+        }];
+
+        Plotly.newPlot('ecosystemChart', ecosystemData, {
+            margin: { t: 0, l: 0, r: 0, b: 0 },
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            font: { color: 'white', family: 'Poppins' }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-item').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(102, 126, 234, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = 'transparent';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+</div>
+</body>
+</html>
